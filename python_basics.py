@@ -203,7 +203,7 @@ tervehdi("Nadja")
 tervehdi("Alex")
 tervehdi("Sara")
 
-# TEHTÄVÄ_21: Palautusarvot / return, input, int, float
+# TEHTÄVÄ_21: Palautusarvot / return, input, int(1,2,3), float(1.5,9.99)
 
 def laske_ale(hinta):
 	ale_hinta = hinta * 0.8
@@ -227,3 +227,163 @@ kayttajan_hinta = float(input("Mikä on tuotteen hinta? "))
 tulos = laske_hinta(kayttajan_hinta)
 
 print("Alennuksessa hinta on vain:", tulos, "euroa!")
+
+# TEHTÄVÄ_22: Virheiden hallinta / try, except
+try:
+	luku = int(input("Anna kokonaisluku: "))
+	print("Hienoa! Syötit luvun:", luku)
+except:
+	print("Hups! Tuo ei ollut numero. Kirjoita vain numeroita!")
+	
+print("Ohjelma jatkuu tästä, vaikka tuli virhe.")
+
+# TEHTÄVÄ_23: try, except, else (Полная логика)
+
+try:
+	ikä = int(input("Kuinka vanha olet? "))
+except:
+	print("Virhe: Anna ikä numerona!")
+else:
+	# Tämä suoritetaan VAIN jos int(input) onnistui
+	if ikä >= 18:
+		print("Olet täysi-ikäinen.")
+	else:
+		print("Olet alaikäinen.")
+		
+print("Kiitos tiedosta!")
+
+# TEHTÄVÄ_24: Tiedostojen käsittely / with open, "w", \n
+
+nimi = "Nadja"
+paikka = "Kerava"
+
+# "w" tarkoittaa 'write' (kirjoita). Se luo uuden tiedoston.
+with open("tervehdys.txt", "w", encoding="utf-8") as tiedosto:
+	tiedosto.write("Moi! Nimeni on " + nimi + "\n")
+	tiedosto.write("Asun paikassa " + paikka)
+	
+print("Tiedosto on luotu onnistuneesti!")
+
+# TEHTÄVÄ_25: Tiedoston lukeminen "r"
+
+# "r" tarkoittaa 'read' (lue). Se avaa olemassa olevan tiedoston.
+try:
+	with open("tervehdys.txt", "r", encoding="utf-8") as tiedosto:
+		sisältö = tiedosto.read()
+		print("Tiedoston sisältö:")
+		print("------------------")
+		print(sisältö)
+except FileNotFoundError:
+	print("Hups! Tiedostoa ei löytynyt.")
+
+# TEHTÄVÄ_26: Tiedoston täydentäminen "a"
+
+merkintä = input("Miten päiväsi meni? ")
+
+# "a" tarkoittaa 'append'. Se lisää tekstin tiedoston loppuun.
+with open("paivakirja.txt", "a", encoding="utf-8") as f:
+	f.write(merkintä + "\n")
+	
+print("Merkintä tallennettu päiväkirjaan!")
+
+# TEHTÄVÄ_27: Classes & Objects
+
+class Auto:
+	# Luokan rakentaja (Constructor), joka alustaa olion tiedot
+	def __init__(self, merkki, malli, vuosi):
+		self.merkki = merkki  # Auton merkki (esim. Toyota)
+		self.malli = malli    # Auton malli (esim. Corolla)
+		self.vuosi = vuosi    # Valmistusvuosi
+		
+	# Metodi, joka tulostaa auton tiedot
+	def nayta_tiedot(self):
+		print(f"Auto: {self.merkki} {self.malli}, Vuosi: {self.vuosi}")
+		
+# Luodaan kaksi eri auto-oliota
+auto1 = Auto("Toyota", "Corolla", 2022)
+auto2 = Auto("Tesla", "Model 3", 2023)
+
+# Käytetään olion metodia
+auto1.nayta_tiedot()
+auto2.nayta_tiedot()
+
+# TEHTÄVÄ_28: Decorators
+
+def my_decorator(func):
+	def wrapper():
+		print("--- Ennen funktion suoritusta ---")
+		func()
+		print("--- Funktion suorituksen jälkeen ---")
+	return wrapper
+
+@my_decorator
+def say_hello():
+	print("Hello World!!")
+
+say_hello()
+
+# TEHTÄVÄ_29: Decorators with arguments
+
+def logger_decorator(func):
+	# *args and **kwargs allow the wrapper to accept any data
+	# *args ja **kwargs sallivat wrapperin ottaa vastaan mitä tahansa tietoa
+	def wrapper(*args, **kwargs):
+		print("--- Calling function: {func.__name__} ---")
+		print("--- Kutsutaan funktiota: {func.__name__} ---")
+		
+		# Execute the original function with its arguments
+		# Suoritetaan alkuperäinen funktio sen argumenteilla
+		result = func(*args, **kwargs)
+		
+		print("--- Finished ---")
+		print("--- Valmis ---")
+		return result
+	return wrapper
+
+@logger_decorator
+def greet_user(name):
+	print("Hello, {name}!")
+	
+# Now we can call it with a parameter
+# Nyt voimme kutsua sitä parametrilla
+greet_user("Nadja")
+
+# TEHTÄVÄ_30: List Comprehensions
+
+# Original list of numbers / Alkuperäinen lukulista
+numbers = [1, 2, 3, 4, 5, 6]
+
+# 1. Create a list of squares (Power of 2)
+# 1. Luodaan lista neliöistä (Potenssiin 2)
+# Standard way:
+# squares = []
+# for x in numbers:
+#     squares.append(x**2)
+
+# List comprehension way (The pro way):
+# Listanmuodostin (Ammattilaisten tapa):
+squares = [x**2 for x in numbers]
+
+# 2. Create a list of even numbers only
+# 2. Luodaan lista vain parillisista luvuista
+evens = [x for x in numbers if x % 2 == 0]
+
+print("Original:", numbers)
+print("Squares:", squares)
+print("Evens only:", evens)
+
+# TEHTÄVÄ_31: Importing Modules
+
+import random  # Library for random numbers / Kirjasto satunnaisluvuille
+import math    # Library for math operations / Kirjasto matemaattisille operaatioille
+
+# 1. Get a random number between 1 and 100
+# 1. Arvotaan luku väliltä 1-100
+random_number = random.randint(1, 100)
+
+# 2. Use Pi from math library
+# 2. Käytetään Pii-vakiota math-kirjastosta
+circle_area = math.pi * (5**2) # Area of circle with radius 5 / Ympyrän pinta-ala säteellä 5
+
+print(f"Random number: {random_number}")
+print(f"Circle area: {circle_area:.2f}") # Rounding to 2 decimals / Pyöristys 2 desimaaliin
