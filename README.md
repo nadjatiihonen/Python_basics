@@ -1,6 +1,6 @@
 My python learning:
 
-1. PYTHON_BASICS.PY
+1. PYTHON_BASICS.PY: 
 
 1-3 	Basic Math & Inputs
 4-7 	Logic & Conditions
