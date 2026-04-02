@@ -387,3 +387,66 @@ circle_area = math.pi * (5**2) # Area of circle with radius 5 / Ympyrän pinta-a
 
 print(f"Random number: {random_number}")
 print(f"Circle area: {circle_area:.2f}") # Rounding to 2 decimals / Pyöristys 2 desimaaliin
+
+# TEHTÄVÄ_32: String Formatting (Merkkijonojen muotoilu)
+
+# Kirjoita koodi tähän (Write your code here)
+age = 25
+print("Olen {} vuotta vanha.".format(age))
+
+# Modern F-Strings
+
+name = "Nadja"
+city = "Kerava"
+score = 10 / 3
+
+# Basic formatting / Perusmuotoilu
+print(f"User: {name}, Location: {city}")
+# Käyttäjä: {name}, Sijainti: {city}
+
+# Math inside f-string / Matematiikkaa f-stringin sisällä
+print(f"Next year I will be {25 + 1} years old.")
+# Ensi vuonna olen {25 + 1} vuotta vanha.
+
+# Formatting numbers (Decimals) / Lukujen muotoilu (Desimaalit)
+# .2f means 2 decimal places / .2f tarkoittaa kahta desimaalia
+print(f"Your final score is: {score:.1f}")
+# Lopullinen pistemääräsi on: {score:.2f}
+
+# TEHTÄVÄ_32: F-Strings
+
+# Kirjoita koodi tähän (Write your code here)
+name = "Nadja"
+city = "Kerava"
+result = 10 / 3
+
+print(f"Name: {name}, City: {city}, Result: {result:.1f}")
+
+# TEHTÄVÄ_33: String alignment
+
+name1 = "Nadja"
+name2 = "AI"
+
+# :<10 means left aligned, 10 characters wide
+# :<10 tarkoittaa vasemmalle kohdistettua, 10 merkkiä leveä
+print(f"|{name1:<10}|") 
+
+# :>10 means right aligned
+# :>10 tarkoittaa oikealle kohdistettua
+print(f"|{name2:>10}|")
+
+# :^10 means centered
+# :^10 tarkoittaa keskitettyä
+print(f"|{name1:^10}|")
+
+# TEHTÄVÄ_34: Simple Table / Yksinkertainen taulukko
+header_name = "Nimi"
+header_sum = "Euro"
+
+print(f"{header_name:<10} | {header_sum:>10}") # Header / Otsikko
+print("-" * 23)                                # Separator / Erotin
+
+# Data rows / Tietorivit
+print(f"{'Nadja':<10} | {150.50:>10.2f}")
+print(f"{'Matti':<10} | {25.00:>10.2f}")
+print(f"{'Pekka':<10} | {1200.75:>10.2f}")

@@ -15,3 +15,6 @@ My python learning:
 28-29 	Decorators
 30 	    List Comprehension
 31 	    Standard Libraries
+32		F-Strings
+33		String alignment
+34		Simple Table
