@@ -18,4 +18,6 @@ My python learning:
 32		F-Strings
 33		String alignment
 34		Simple Table
-35      Harjoitukset sep/end
+35-37   Harjoitukset sep/end
+38      repr
+39-40   round

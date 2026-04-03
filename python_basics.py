@@ -450,7 +450,7 @@ print("-" * 23)                                # Separator / Erotin
 print(f"{'Nadja':<10} | {150.50:>10.2f}")
 print(f"{'Matti':<10} | {25.00:>10.2f}")
 print(f"{'Pekka':<10} | {1200.75:>10.2f}")
-"""
+
 # TEHTÄVÄ_35: Harjoitukset sep/end
 
 print("Python", "on", "kivaa", sep='')
@@ -460,3 +460,35 @@ label = "Hinta: "
 price = 100 
 symbol = "€"
 print(label, price, symbol, sep='')
+
+# TEHTÄVÄ_36: 
+
+day = "04"
+month = "04"
+year = "2026"
+print(day,month,year, sep=".", end=" Helsinki")
+
+# TEHTÄVÄ_37:
+
+item1 = "Maito"
+item2 = "Leipä"
+item3 = "Voi"
+print(item1, item2, item3, sep=", ", end=".")
+
+# TEHTÄVÄ_38: repr
+
+data = "Nimi:\tNadja"
+print(data)
+print(repr(data))
+
+# TEHTÄVÄ_39: round
+
+tulos = 10 / 3
+pyöre_tulos = tulos
+print (round(pyöre_tulos, 3))
+
+# TEHTÄVÄ_40: round
+
+hinta = 19.99
+pyöre_hinta = (round(hinta))
+print (pyöre_hinta)
