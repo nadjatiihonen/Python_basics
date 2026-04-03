@@ -1,5 +1,5 @@
 # TEHTÄVÄ_1
-
+"""
 luku = int(input('Anna numero'))
 print (luku + 10)
 
@@ -394,7 +394,7 @@ print(f"Circle area: {circle_area:.2f}") # Rounding to 2 decimals / Pyöristys 2
 age = 25
 print("Olen {} vuotta vanha.".format(age))
 
-# Modern F-Strings
+# F-Strings
 
 name = "Nadja"
 city = "Kerava"
@@ -450,3 +450,13 @@ print("-" * 23)                                # Separator / Erotin
 print(f"{'Nadja':<10} | {150.50:>10.2f}")
 print(f"{'Matti':<10} | {25.00:>10.2f}")
 print(f"{'Pekka':<10} | {1200.75:>10.2f}")
+"""
+# TEHTÄVÄ_35: Harjoitukset sep/end
+
+print("Python", "on", "kivaa", sep='')
+print("Pääjohtaja Urho Mikkonen. ", end="Villahousut\n")
+
+label = "Hinta: "
+price = 100 
+symbol = "€"
+print(label, price, symbol, sep='')
